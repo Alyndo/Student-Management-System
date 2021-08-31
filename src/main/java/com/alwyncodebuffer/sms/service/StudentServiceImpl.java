@@ -27,8 +27,8 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public Student fetchStudentById(Long id) throws StudentNotFoundException {
-        Optional<Student> student= studentRepository.findById(id);
+    public Student fetchStudentById(Long studentId) throws StudentNotFoundException {
+        Optional<Student> student= studentRepository.findById(studentId);
 
         if(!student.isPresent()) {
             throw new StudentNotFoundException("Student Not Available");
@@ -38,29 +38,29 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public Student updateStudent(Long id, Student student) {
-        Student studDB = studentRepository.findById(id).get();
+    public Student updateStudent(Long studentId, Student student) {
+        Student studDB = studentRepository.findById(studentId).get();
 
-        if(Objects.nonNull(student.getName()) &&
-                !"".equalsIgnoreCase(student.getName())) {
-            studDB.setName(student.getName());
+        if(Objects.nonNull(student.getStudentName()) &&
+                !"".equalsIgnoreCase(student.getStudentName())) {
+            studDB.setStudentName(student.getStudentName());
         }
 
-        if(Objects.nonNull(student.getGender()) &&
-                !"".equalsIgnoreCase(student.getGender())) {
-            studDB.setGender(student.getGender());
+        if(Objects.nonNull(student.getStudentGender()) &&
+                !"".equalsIgnoreCase(student.getStudentGender())) {
+            studDB.setStudentGender(student.getStudentGender());
         }
 
-        if(Objects.nonNull(student.getAdmissionTime()) &&
-                !"".equalsIgnoreCase(student.getAdmissionTime())) {
-            studDB.setAdmissionTime(student.getAdmissionTime());
+        if(Objects.nonNull(student.getStudentEmail()) &&
+                !"".equalsIgnoreCase(student.getStudentEmail())) {
+            studDB.setStudentEmail(student.getStudentEmail());
         }
 
         return studentRepository.save(studDB);
     }
 
     @Override
-    public void deleteStudentById(Long id) {
-        studentRepository.deleteById(id);
+    public void deleteStudentById(Long studentId) {
+        studentRepository.deleteById(studentId);
     }
 }

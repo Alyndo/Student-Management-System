@@ -25,18 +25,18 @@ public class StudentController {
     }
 
     @GetMapping("/students/{id}")
-    public Student fetchStudentById(@PathVariable("id") Long id) throws StudentNotFoundException {
-        return studentService.fetchStudentById(id);
+    public Student fetchStudentById(@PathVariable("id") Long studentId) throws StudentNotFoundException {
+        return studentService.fetchStudentById(studentId);
     }
 
     @PutMapping("/students/{id}")
-    public Student updateStudent(@PathVariable("id") Long id, @RequestBody Student student){
-        return studentService.updateStudent(id, student);
+    public Student updateStudent(@PathVariable("id") Long studentId, @RequestBody Student student){
+        return studentService.updateStudent(studentId, student);
     }
 
     @DeleteMapping("/students/{id}")
-    public String  deleteStudentById(@PathVariable("id") Long id){
-        studentService.deleteStudentById(id);
+    public String  deleteStudentById(@PathVariable("id") Long studentId){
+        studentService.deleteStudentById(studentId);
         return "Student deleted Successfully!!";
     }
 

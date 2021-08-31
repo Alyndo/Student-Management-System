@@ -17,8 +17,10 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
-    private String gender;
-    private String admissionTime;
+    private Long studentId;
+    private String studentName;
+    private String studentEmail;
+    private Long studentPhone;
+    private Integer studentAge;
+    private String studentGender;
 }

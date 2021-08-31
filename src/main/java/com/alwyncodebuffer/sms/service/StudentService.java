@@ -10,9 +10,9 @@ public interface StudentService {
 
     List<Student> fetchStudentList();
 
-    Student fetchStudentById(Long id) throws StudentNotFoundException;
+    Student fetchStudentById(Long studentId) throws StudentNotFoundException;
 
-    Student updateStudent(Long id, Student student);
+    Student updateStudent(Long studentId, Student student);
 
-    void deleteStudentById(Long id);
+    void deleteStudentById(Long studentId);
 }
